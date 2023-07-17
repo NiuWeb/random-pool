@@ -1,5 +1,7 @@
 # random-pool
 
+[https://github.com/NiuWeb/random-pool](https://github.com/NiuWeb/random-pool)
+
 Picks random elements from a pool.
 
 ## Usage
