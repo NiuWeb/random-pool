@@ -9,7 +9,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, "dist"),
     library: {
-      name: "random-pool",
+      name: "@bygdle/random-pool",
       type: "umd",
     }
   },
