@@ -4,6 +4,7 @@
   "description": "Select random items from a pool of items",
   "main": "dist/index.js",
   "scripts": {
+    "prepare": "npm run build",
     "test": "jest",
     "build": "webpack --mode=production --node-env=production",
     "dev": "webpack --watch"
