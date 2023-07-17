@@ -64,6 +64,14 @@ export class RandomPool<V> {
     }
 
     /**
+     * Returns the items in the pool. This is a read-only array,
+     * and should not be modified directly.
+     */
+    public get items(): Readonly<PoolItem<V>[]> {
+        return this.pool
+    }
+
+    /**
      * Returns a random item from the pool. If the pool is empty, a RangeError is thrown.
      * @returns a random item from the pool
      */
