@@ -106,7 +106,7 @@ export class RandomPool<V> {
      * @returns The same input pool
      */
     public static normalize<V>(pool: PoolItem<V>[], total?: number): PoolItem<V>[] {
-        const sum =total ?? pool.reduce((acc, [, w]) => acc + w, 0)
+        const sum = total ?? pool.reduce((acc, [, w]) => acc + w, 0)
         for (let i = 0; i < pool.length; i++) {
             pool[i][1] /= sum
         }
