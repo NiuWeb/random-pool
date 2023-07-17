@@ -6,11 +6,6 @@ export interface PoolOptions<V> {
     values?: PoolItem<V>[]
     /** if true, items will be removed from the pool once selected */
     dependent?: boolean
-    /** 
-     * The random() function, used to pick a random number between 0 and 1.
-     * If not provided, Math.random() will be used.
-     */
-    random?(): number
 }
 
 /**
@@ -21,7 +16,6 @@ export class RandomPool<V> {
     private basePool: PoolItem<V>[] = []
     private pool: PoolItem<V>[] = []
     private weight = 0
-    private random = Math.random
     /**
      * if true, items will be removed from the pool once selected
      */
@@ -29,11 +23,10 @@ export class RandomPool<V> {
     /**
      * Creates a new random pool
      */
-    constructor({ values = [], dependent = false, random = Math.random }: PoolOptions<V>) {
+    constructor({ values = [], dependent = false }: PoolOptions<V>) {
         this.basePool = values
         this.update(values)
         this.dependent = dependent
-        this.random = random
     }
 
     /**
@@ -76,7 +69,7 @@ export class RandomPool<V> {
      * @returns a random item from the pool
      */
     public pick() {
-        const picked = RandomPool.range(0, this.weight, this.random)
+        const picked = RandomPool.range(0, this.weight)
 
         let sum = 0
         for (let i = 0; i < this.pool.length; i++) {
@@ -101,8 +94,8 @@ export class RandomPool<V> {
      * @param max The maximum value
      * @returns a random number between min and max
      */
-    public static range(min: number, max: number, random = Math.random): number {
-        return min + (max - min) * random()
+    public static range(min: number, max: number): number {
+        return min + (max - min) * RandomPool.random()
     }
 
     /**
@@ -120,4 +113,10 @@ export class RandomPool<V> {
         }
         return pool
     }
+
+    /** 
+     * The random() function, used to pick a random number between 0 and 1.
+     * If not provided, Math.random() will be used.
+     */
+    public static random = Math.random
 }
