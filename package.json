@@ -2,7 +2,7 @@
   "name": "@bygdle/random-pool",
   "version": "1.2.0",
   "description": "Select random items from a pool of items",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "prepare": "npm run build",
     "test": "jest",
