@@ -13,6 +13,7 @@ const config = {
       type: "umd",
     },
     globalObject: "this",
+    filename: "index.js",
   },
   plugins: [
     // Add your plugins here
