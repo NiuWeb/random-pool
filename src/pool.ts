@@ -30,6 +30,21 @@ export class RandomPool<V> {
     }
 
     /**
+     * Returns the number of items in the pool
+     */
+    public get length(): number {
+        return this.pool.length
+    }
+
+    /**
+     * Returns the items in the pool. This is a read-only array,
+     * and should not be modified directly.
+     */
+    public get items(): Readonly<PoolItem<V>[]> {
+        return this.pool
+    }
+
+    /**
      * Updates the pool with a new list of items
      * @param pool the new pool to use
      */
@@ -47,21 +62,6 @@ export class RandomPool<V> {
         for (const [, w] of this.pool) {
             this.weight += w
         }
-    }
-
-    /**
-     * Returns the number of items in the pool
-     */
-    public get length(): number {
-        return this.pool.length
-    }
-
-    /**
-     * Returns the items in the pool. This is a read-only array,
-     * and should not be modified directly.
-     */
-    public get items(): Readonly<PoolItem<V>[]> {
-        return this.pool
     }
 
     /**
