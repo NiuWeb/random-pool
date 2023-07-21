@@ -1,6 +1,6 @@
 {
   "name": "@bygdle/random-pool",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Select random items from a pool of items",
   "main": "dist/main.js",
   "scripts": {
