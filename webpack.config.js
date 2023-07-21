@@ -11,7 +11,8 @@ const config = {
     library: {
       name: "@bygdle/random-pool",
       type: "umd",
-    }
+    },
+    globalObject: "this",
   },
   plugins: [
     // Add your plugins here
