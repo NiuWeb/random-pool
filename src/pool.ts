@@ -89,6 +89,21 @@ export class RandomPool<V> {
     }
 
     /**
+     * Removes an item from the pool
+     */
+    public remove(value: V): boolean {
+        const index = this.pool.findIndex(([v]) => v === value)
+        if (index === -1) {
+            return false
+        }
+
+        const [, weight] = this.pool[index]
+        this.pool.splice(index, 1)
+        this.weight -= weight
+        return true
+    }
+
+    /**
      * Returns a random number between min and max
      * @param min The minimum value
      * @param max The maximum value
